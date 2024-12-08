@@ -1,0 +1,57 @@
+Initialize Database
+
+CREATE DATABASE carimportdb;
+
+CREATE TABLE tb_user (
+  username VARCHAR(50) primary key,
+  `password` VARCHAR(50) NOT NULL,
+  email VARCHAR(50) NOT NULL
+);
+
+CREATE TABLE Owner (
+Name VARCHAR(20) NOT NULL,
+Address VARCHAR(40) NOT NULL PRIMARY KEY,
+Gender VARCHAR(10),
+Accidents VARCHAR(40)
+);
+
+CREATE TABLE Shipper (
+CompanyName VARCHAR(20) NOT NULL PRIMARY KEY,
+Location VARCHAR(20),
+TrackingID INT
+);
+
+CREATE TABLE Car (
+Make VARCHAR(10) NOT NULL,
+Model VARCHAR(10),
+Year INT,
+VIN VARCHAR(20) NOT NULL PRIMARY KEY,
+Price INT
+);
+
+INSERT INTO tb_user(username, password, email)
+VALUES ('Pramukh', '123', 'p@gmail.com'), ('Ian', '456', 'i@gmail.com'), ('John', '789', 'j@gmail.com');
+
+INSERT INTO Owner (Name, Address, Gender, Accidents)
+VALUES ('Joe', '123 Apple Street', 'Male', NULL), ('Patrick', '629 Apache Lane', 'Male', '2 Accidents'),
+('Jacob', '932 State Street', 'Male', NULL);
+
+INSERT INTO Shipper (CompanyName, Location, TrackingID)
+VALUES ('Duncan', 'Christiansburg, VA', 491281), ('RHD', 'Kent, WA', 293482), 
+('Japanese Classics', 'Richmond, VA', 123892);
+
+INSERT INTO Car (Make, Model, Year, VIN, Price)
+VALUES ('Mazda', 'RX7', 2002, '3GCRKSE33AG134286', 21091), 
+('Honda', 'NSX', 2003, '5GZEV23788J193580', 89000),
+('Toyota', 'Supra MKIV', 2002, 'WA1LFAFP1EA006813', 61000);
+
+
+Delete Database
+
+
+DROP TABLE tb_user;
+DROP TABLE Owner;
+DROP TABLE Shipper;
+DROP TABLE Car;
+
+DROP DATABASE carimportdb;
